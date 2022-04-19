@@ -38,11 +38,13 @@
 }
 
 body {
-  background-color: #000000bf;
+  background-color: #fff;
 }
 
 #root {
-  width: 700px;
-  height: 500px;
-  margin: 10px auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
