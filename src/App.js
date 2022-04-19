@@ -3,8 +3,6 @@ import { useContext, useEffect, useState } from "react";
 import { useWeb3React } from "@web3-react/core";
 import { utils, api } from "@epnsproject/frontend-sdk-staging";
 import { DEFAULT_NOTIFICATIONS } from "./data";
-
-import Helpers from './helpers';
 import EmbedView from './components/EmbedView';
 import { SDKContext } from './context';
 
@@ -22,7 +20,6 @@ function App() {
   const [notifications, setNotifications] = useState([]);
   const sdkContext = useContext(SDKContext);
 
-  console.log("recvd context: ", sdkContext);
   /**
    * Fetch notifications for the user
    */
@@ -50,7 +47,7 @@ function App() {
 
   return (
     <EmbedView
-      headerText="just for now"
+      headerText={sdkContext.headerText}
       notifications={notifications}
     />
   );

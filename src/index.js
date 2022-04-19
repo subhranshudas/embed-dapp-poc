@@ -22,12 +22,9 @@ const MainAPP = () => {
     try {
       if (typeof evt.data === 'string') {
         const publishedMessage = JSON.parse(evt.data);
-        console.log("publishedMessage:  ", publishedMessage);
         if (publishedMessage && publishedMessage.msgCode === 'EPNS_SDK_PARENT_TO_IFRAME_MSG') {
-          console.log('Received communication from the PARENT: ', publishedMessage);
-
           if (publishedMessage.msgType === 'SDK_CONFIG_INIT') {
-            console.warn("what was recvd from SDK: ", publishedMessage.msg);
+            console.warn("SDK_CONFIG_INIT in app: ", publishedMessage.msg);
             setAppConfig(publishedMessage.msg);
           }
         }
