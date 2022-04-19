@@ -58,7 +58,7 @@ function App() {
 
   return (
     <EmbedView
-      headerText={headerText}
+      headerText="just for now"
       notifications={notifications}
     />
   );
