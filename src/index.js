@@ -34,8 +34,7 @@ const MainAPP = () => {
     }
   }
   
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(async() => {
+  useEffect(() => {
     window.addEventListener('message', onMessageEventListener, false);
 
     Helpers.pusblishMsgToSDK(
