@@ -14,7 +14,7 @@ const EmbedView = ({ headerText, notifications }) => {
             <ViewHeader>
               <HeaderLink href={epnsLink} target="_blank" title={epnsLink}>
                   <span>{headerText}</span>
-                  <OpenIcon className="view-link-icon" size="25"/>
+                  <OpenIcon className="view-link-icon" size="20"/>
               </HeaderLink>
 
               <CloseIcon className="view-close-icon" size="30"/>
