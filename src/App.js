@@ -1,11 +1,12 @@
 import './App.css';
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useWeb3React } from "@web3-react/core";
 import { utils, api } from "@epnsproject/frontend-sdk-staging";
 import { DEFAULT_NOTIFICATIONS } from "./data";
 
 import Helpers from './helpers';
 import EmbedView from './components/EmbedView';
+import { SDKContext } from './context';
 
 
 const PAGINATION_PARAMS = {
@@ -19,11 +20,15 @@ const BASE_URL = "https://backend-kovan.epns.io/apis";
 function App() {
   const { active, account } = useWeb3React();
   const [notifications, setNotifications] = useState([]);
+  const sdkContext = useContext(SDKContext);
 
+  console.log("recvd context: ", sdkContext);
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     Helpers.pusblishMsgToSDK(
       Helpers.createMsgPayload('EMBED APP LOADED...')
-    );
+    );      
   }, []);
 
   /**
@@ -52,7 +57,10 @@ function App() {
     }, [active]);
 
   return (
-    <EmbedView headerText="My custom header" notifications={notifications} />
+    <EmbedView
+      headerText={headerText}
+      notifications={notifications}
+    />
   );
 }
 

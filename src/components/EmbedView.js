@@ -8,7 +8,7 @@ import ConnectButton from "./connect";
 // change later to config
 const epnsLink = 'https://staging-app.epns.io/';
 
-const EmbedView = ({ headerText = 'Notifications', notifications }) => {
+const EmbedView = ({ headerText, notifications }) => {
     return (
         <ViewContainer>
             <ViewHeader>
@@ -102,5 +102,9 @@ const HeaderLink = styled.a`
         color: #2b43d8;
     }
 `
+
+EmbedView.defaultProps = {
+    headerText: 'Notifications'
+};
 
 export default EmbedView;

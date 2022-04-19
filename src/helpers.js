@@ -12,6 +12,11 @@ const Helpers = {
     } catch (error) {
         console.warn('[embed-dapp] something went wrong while passing msg to SDK');
     }
+  },
+  async getConfigFromLocalStorage() {
+    const sdkConfig = window.localStorage.getItem('EPNS_SDK_CONFIG');
+    debugger;
+    return sdkConfig;
   }
 }
 
