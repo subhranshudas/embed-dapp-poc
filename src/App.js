@@ -39,8 +39,8 @@ function App() {
             ...results,
             ...DEFAULT_NOTIFICATIONS,
           ]);
-          console.log({ unparsed: results });
-          console.log({ parsed: response });
+          // console.log({ unparsed: results });
+          // console.log({ parsed: response });
           setNotifications(response);
         });
     }, [active]);
