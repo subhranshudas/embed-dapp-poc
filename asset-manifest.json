@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/embed-dapp-poc/static/css/main.073c9b0a.css",
+    "main.js": "/embed-dapp-poc/static/js/main.b5cbcad8.js",
+    "static/js/787.8e8c1f7d.chunk.js": "/embed-dapp-poc/static/js/787.8e8c1f7d.chunk.js",
+    "static/media/logo.svg": "/embed-dapp-poc/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/embed-dapp-poc/index.html",
+    "main.073c9b0a.css.map": "/embed-dapp-poc/static/css/main.073c9b0a.css.map",
+    "main.b5cbcad8.js.map": "/embed-dapp-poc/static/js/main.b5cbcad8.js.map",
+    "787.8e8c1f7d.chunk.js.map": "/embed-dapp-poc/static/js/787.8e8c1f7d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.b5cbcad8.js"
+  ]
+}
