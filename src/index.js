@@ -16,16 +16,32 @@ function getLibrary(provider) {
 
 const MainAPP = () => {
   const [appConfig, setAppConfig] = useState({});
+
+  function onMessageEventListener(evt) {
+    try {
+      if (typeof evt.data === 'string') {
+        const publishedMessage = JSON.parse(evt.data)
+        if (publishedMessage && publishedMessage.msgCode === 'EPNS_SDK_PARENT_TO_IFRAME_MSG') {
+          console.log('Received communication from the PARENT: ', publishedMessage);
+
+          if (publishedMessage.msgType === 'SDK_CONFIG_INIT') {
+            console.warn("what was recvd from SDK: ", publishedMessage.msg);
+            setAppConfig(publishedMessage.msg);
+          }
+        }
+      }
+    } catch (err) {
+      console.error('something went wrong parsing IFRAME message to the APP.')
+    }
+  }
   
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(async() => {
-    async function getConfig() {
-      const cfg = window.localStorage.getItem('EPNS_SDK_CONFIG');
-      return cfg;
-    }
+    window.addEventListener('message', onMessageEventListener, false);
 
-    const cfg = await getConfig();
-    setAppConfig(cfg);
+    return () => {
+      window.removeEventListener('message', onMessageEventListener, false);
+    }
   }, []);
 
   return (
