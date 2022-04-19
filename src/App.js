@@ -23,14 +23,6 @@ function App() {
   const sdkContext = useContext(SDKContext);
 
   console.log("recvd context: ", sdkContext);
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(() => {
-    Helpers.pusblishMsgToSDK(
-      Helpers.createMsgPayload({ msg: ' IFRAME sAPP loaded', msgType: 'IFRAME_APP_LOADED' })
-    );      
-  }, []);
-
   /**
    * Fetch notifications for the user
    */

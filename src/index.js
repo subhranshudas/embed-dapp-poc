@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { ethers } from "ethers";
 import { Web3ReactProvider } from "@web3-react/core";
 import { SDKContext } from './context';
+import Helpers from './helpers';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -19,10 +20,9 @@ const MainAPP = () => {
 
   function onMessageEventListener(evt) {
     try {
-      console.log("onMessageEventListener: ", evt);
       if (typeof evt.data === 'string') {
-        console.log("onMessageEventListener:  evt.data:  ", evt.data);
-        const publishedMessage = JSON.parse(evt.data)
+        const publishedMessage = JSON.parse(evt.data);
+        console.log("publishedMessage:  ", publishedMessage);
         if (publishedMessage && publishedMessage.msgCode === 'EPNS_SDK_PARENT_TO_IFRAME_MSG') {
           console.log('Received communication from the PARENT: ', publishedMessage);
 
@@ -40,6 +40,10 @@ const MainAPP = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(async() => {
     window.addEventListener('message', onMessageEventListener, false);
+
+    Helpers.pusblishMsgToSDK(
+      Helpers.createMsgPayload({ msg: ' IFRAME sAPP loaded', msgType: 'IFRAME_APP_LOADED' })
+    );      
 
     return () => {
       window.removeEventListener('message', onMessageEventListener, false);
