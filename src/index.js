@@ -20,8 +20,8 @@ const MainAPP = () => {
   function onMessageEventListener(evt) {
     try {
       console.log("onMessageEventListener: ", evt);
-      debugger;
       if (typeof evt.data === 'string') {
+        console.log("onMessageEventListener:  evt.data:  ", evt.data);
         const publishedMessage = JSON.parse(evt.data)
         if (publishedMessage && publishedMessage.msgCode === 'EPNS_SDK_PARENT_TO_IFRAME_MSG') {
           console.log('Received communication from the PARENT: ', publishedMessage);
