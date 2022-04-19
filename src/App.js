@@ -11,7 +11,7 @@ function App() {
   }, []);
 
   return (
-    <EmbedView />
+    <EmbedView headerText="My custom header" />
   );
 }
 
