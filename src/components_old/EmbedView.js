@@ -2,13 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import { Open as OpenIcon } from '@styled-icons/fluentui-system-filled/Open'
 import { Close as CloseIcon } from '@styled-icons/evil/Close';
-import { NotificationItem } from "@epnsproject/frontend-sdk-staging";
-import ConnectButton from "./connect";
+import Notifications from './Notifications';
 
 // change later to config
-const epnsLink = 'https://staging-app.epns.io/';
+const epnsLink = 'https://app.epns.io/';
 
-const EmbedView = ({ headerText = 'Notifications', notifications }) => {
+const EmbedView = ({ headerText = 'Notifications' }) => {
     return (
         <ViewContainer>
             <ViewHeader>
@@ -20,31 +19,7 @@ const EmbedView = ({ headerText = 'Notifications', notifications }) => {
               <CloseIcon className="view-close-icon" size="30"/>
             </ViewHeader>
             <ViewBody>
-                <ConnectButton />
-
-                {notifications.map((oneNotification, i) => {
-                    const { cta, title, message, app, icon, image, url, blockchain } =
-                    oneNotification;
-
-                    // render the notification item
-                    return (
-                    <NotificationItem
-                        key={i}
-                        notificationTitle={title}
-                        notificationBody={message}
-                        cta={cta}
-                        app={app}
-                        icon={icon}
-                        image={image}
-                        url={url}
-                        // optional parameters for rendering spambox
-                        isSpam={i === notifications.length - 1}
-                        subscribeFn={async () => alert("yayy")}
-                        isSubscribedFn={async () => false}
-                        chainName={blockchain}
-                    />
-                    );
-                })}
+                <Notifications />
             </ViewBody>
         </ViewContainer>
     );
