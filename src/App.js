@@ -5,6 +5,7 @@ import { utils, api } from "@epnsproject/frontend-sdk-staging";
 import { DEFAULT_NOTIFICATIONS } from "./data";
 import EmbedView from './components/EmbedView';
 import { SDKContext } from './context';
+import Helpers from './helpers';
 
 
 const PAGINATION_PARAMS = {
