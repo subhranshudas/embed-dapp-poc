@@ -20,7 +20,7 @@ const EmbedView = ({ headerText, notifications, onCloseHandler }) => {
               <CloseIcon className="view-close-icon" size="30" onClick={onCloseHandler}/>
             </ViewHeader>
             <ViewBody>
-                <div style={{ display: 'flex', textAlign: 'center' }}>
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <ConnectButton />
                 </div>
 
