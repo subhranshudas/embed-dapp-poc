@@ -8,7 +8,7 @@ import ConnectButton from "./connect";
 // change later to config
 const epnsLink = 'https://staging-app.epns.io/';
 
-const EmbedView = ({ headerText, notifications }) => {
+const EmbedView = ({ headerText, notifications, onCloseHandler }) => {
     return (
         <ViewContainer>
             <ViewHeader>
@@ -17,10 +17,13 @@ const EmbedView = ({ headerText, notifications }) => {
                   <OpenIcon className="view-link-icon" size="20"/>
               </HeaderLink>
 
-              <CloseIcon className="view-close-icon" size="30"/>
+              <CloseIcon className="view-close-icon" size="30" onClick={onCloseHandler}/>
             </ViewHeader>
             <ViewBody>
-                <ConnectButton />
+                <div style={{ display: 'flex', textAlign: 'center' }}>
+                    <ConnectButton />
+                </div>
+
 
                 {notifications.map((oneNotification, i) => {
                     const { cta, title, message, app, icon, image, url, blockchain } =

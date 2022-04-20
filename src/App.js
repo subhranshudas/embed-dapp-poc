@@ -20,6 +20,16 @@ function App() {
   const [notifications, setNotifications] = useState([]);
   const sdkContext = useContext(SDKContext);
 
+  const onCloseHandler = () => {
+    console.warn("close handler")
+    Helpers.pusblishMsgToSDK(
+      Helpers.createMsgPayload({
+        msg: ' IFRAME is closed',
+        msgType: 'IFRAME_APP_CLOSE'
+      })
+    );
+  };
+
   /**
    * Fetch notifications for the user
    */
@@ -49,6 +59,7 @@ function App() {
     <EmbedView
       headerText={sdkContext.headerText}
       notifications={notifications}
+      onCloseHandler={onCloseHandler}
     />
   );
 }
